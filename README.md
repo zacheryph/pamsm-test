@@ -6,9 +6,13 @@ Attempting to use [Crate](https://crates.io/crates/pamsm).
 [Functions Not Showing Up](https://github.com/rcatolino/pam_sm_rust/blob/master/src/pam.rs#L89-L109)
 
 shell output below. I can understand if not linking to pam cause it is
-not calling anything from the pam library, but i am not getting the
-`pam_sm_*` functions from the `pamsm::pam` module. This in turn means
-the example cannot work when pam tries to load it.
+not calling anything from the pam library. Although I also do not know
+if this is a requirement for PAM service modules even if it does not
+use PAM functions.
+
+I biggest issue is that I am not getting the `pam_sm_*` functions from
+the `pamsm::pam` module. This in turn means the example cannot work
+when pam tries to load it.
 
 Attempting to replicate on smaller scale by moving the callback macro
 to my `src/lib.rs` does not work and the functions show up.
