@@ -7,8 +7,13 @@ use pamsm::{Pam, PamServiceModule};
 struct PamTime;
 
 impl PamServiceModule for PamTime {
-    fn authenticate(self: &Self, _pamh: Pam, _flags: PamFlag, args: Vec<String>) -> PamError {
+    fn authenticate(self: &Self, pamh: Pam, _flags: PamFlag, args: Vec<String>) -> PamError {
         println!("ARGS: {:?}", args);
+
+        // This causes callbacks to show up
+        let r = pamh.get_cached_authtok();
+        println!("AUTHTOK: {:?}", r);
+
         let hour = time::now().tm_hour;
         if hour != 4 {
             // Only allow authentication when it's 4 AM
