@@ -1,0 +1,13 @@
+[package]
+name = "pamsm-test"
+version = "0.1.0"
+authors = ["Zachery Hostens <zacheryph@gmail.com>"]
+
+links = "pam"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+pamsm = "0.1"
+time = "0.1"
